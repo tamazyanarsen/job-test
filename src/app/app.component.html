@@ -4,7 +4,8 @@
           {{item.group}}
           <div *ngFor="let child of item.children" class="group__item">
             {{child.name}}
-            <mat-slider min="0" max="10" step="1" thumbLabel tickInterval="1"></mat-slider>
+            <mat-slider [(value)]="child.value" min="0" max="10" step="1" thumbLabel tickInterval="1"></mat-slider>
+            {{child.value}}
           </div>
         </div>
     </div>
