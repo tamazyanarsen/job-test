@@ -1,12 +1,37 @@
 <div class="content">
     <div class="list">
-        <div *ngFor="let item of items" class="group">
-          {{item.group}}
-          <div *ngFor="let child of item.children" class="group__item">
-            {{child.name}}
-            <mat-slider [(value)]="child.value" min="0" max="10" step="1" thumbLabel tickInterval="1"></mat-slider>
-            {{child.value}}
-          </div>
-        </div>
+        <ng-container *ngFor="let item of allItems; index as ind">
+            <div *ngIf="ind===currentGroupIndex" class="group">
+                <div class="group__title">
+                    <h2>
+                        {{item.group}}
+                    </h2>
+                </div>
+                <div class="list__item">
+                    <div *ngFor="let child of item.children" class="group__item">
+                        <div class="group__item_title">{{child.name}} ({{child.value}})</div>
+                        <mat-slider (change)="changeSum($event, child)" [(value)]="child.value" min="0" max="10"
+                                    step="1" thumbLabel
+                                    tickInterval="1"></mat-slider>
+                    </div>
+                </div>
+                <div class="submit-block">
+                    <button mat-stroked-button *ngIf="currentGroupIndex > 0"
+                            (click)="updateBlock(currentGroupIndex-1)">
+                        Назад
+                    </button>
+                    <button [disabled]="blockSum !== 10" mat-raised-button color="primary"
+                            (click)="updateBlock(currentGroupIndex+1)">Дальше
+                    </button>
+                    <div class="icon-block">
+                        <mat-icon aria-hidden="false" aria-label="Справка" (mouseover)="showIconHelp=true"
+                                  (mouseleave)="showIconHelp=false">help
+                        </mat-icon>
+                        <span class="icon__text"
+                              *ngIf="showIconHelp">Нужно распределить 10 баллов между всеми вопросами</span>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>
