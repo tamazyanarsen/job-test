@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="list">
+    <div class="list" *ngIf="showList">
         <ng-container *ngFor="let item of allItems; index as ind">
             <div *ngIf="ind===currentGroupIndex" class="group">
                 <div class="group__title">
@@ -33,5 +33,22 @@
                 </div>
             </div>
         </ng-container>
+    </div>
+
+    <div *ngIf="!showList" class="list">
+        <h3>результаты теста</h3>
+        <div *ngFor="let item of result">
+            <div>{{item.title}}</div>
+        </div>
+        <div>
+            <h3>Лучшая роль</h3>
+            <h4>{{resultInfo[0].name}}</h4>
+            <div>{{resultInfo[0].description}}</div>
+        </div>
+        <div>
+            <h3>Худшая роль</h3>
+            <h4>{{resultInfo[1].name}}</h4>
+            <div>{{resultInfo[1].description}}</div>
+        </div>
     </div>
 </div>
