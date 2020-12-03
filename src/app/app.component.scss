@@ -13,7 +13,7 @@
     .group {
         display: flex;
         flex-direction: column;
-        max-height: 100vh;
+        max-height: 95vh;
 
         &__title {
         }
@@ -49,7 +49,7 @@
 .result-list {
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
+    max-height: 95vh;
 
     .result-info {
         display: flex;
@@ -63,7 +63,13 @@
         max-width: 90%;
 
         &__item {
-            //max-height: 60vh;
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
         }
+    }
+
+    .result-info {
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 }
