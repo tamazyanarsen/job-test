@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 развивать, разрабатывает стратегию. Он интересуется, в основном, более широкими
 вопросами, которые могут дать результат, при недостаточном внимании к деталям. Стиль
 Мыслителя - привносить инновационные идеи в работу команды и ее цели. Он склонен
-"витать в облаках" и игнорировать детали или протокол`
+"витать в облаках" и игнорировать детали или протокол.`
         },
         {
             name: 'Разведчик', indexes: this.convertStringToIndexes('acfgehd'), description: `Это экстравертивный (ориентированный на внешний мир), собирающий ресурсы тип
@@ -129,6 +129,17 @@ export class AppComponent implements OnInit {
     updateBlock(currentGroupIndex) {
         if (currentGroupIndex > this.allItems.length - 1) {
             this.result = this.getResult();
+            this.result.sort((a, b) => {
+                if (a.value < b.value) {
+                    return 1;
+                }
+                if (a.value === b.value) {
+                    return 0;
+                }
+                if (a.value > b.value) {
+                    return -1;
+                }
+            });
             this.showList = false;
 
             const maxValue = Math.max(...this.result.map(e => e.value));

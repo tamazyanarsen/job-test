@@ -8,7 +8,6 @@
         display: flex;
         flex-direction: column;
         overflow: auto;
-        //max-height: 75vh;
     }
 
     .group {
@@ -44,6 +43,18 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+.result-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+
+    .result-info {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
     }
 }
 

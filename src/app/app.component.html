@@ -35,15 +35,17 @@
         </ng-container>
     </div>
 
-    <div *ngIf="!showList" class="list">
-        <h3>результаты теста</h3>
+    <div *ngIf="!showList" class="list result-list">
+        <h3>Результаты теста</h3>
         <div *ngFor="let item of result">
             <div>{{item.title}}</div>
         </div>
-        <div>
-            <h3>Лучшая роль</h3>
-            <h4>{{resultInfo[0].name}}</h4>
-            <div>{{resultInfo[0].description}}</div>
+        <div class="result-info">
+            <h3>Лучшие роль</h3>
+            <div *ngFor="let item of result.slice(0, 3)">
+                <h4>{{item.name}}</h4>
+                <div>{{item.description}}</div>
+            </div>
         </div>
         <div>
             <h3>Худшая роль</h3>
