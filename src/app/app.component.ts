@@ -120,6 +120,7 @@ export class AppComponent implements OnInit {
         this.updateAllSum();
         this.updateBlockSum();
         if (this.blockSum > 10) {
+            this.blockSum = 10;
             event.source.value = 0;
             child.value = 0;
         }

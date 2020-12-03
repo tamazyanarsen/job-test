@@ -8,10 +8,13 @@
         display: flex;
         flex-direction: column;
         overflow: auto;
-        max-height: 75vh;
+        //max-height: 75vh;
     }
 
     .group {
+        display: flex;
+        flex-direction: column;
+        max-height: 100vh;
 
         &__title {
         }
@@ -40,6 +43,16 @@
             mat-icon {
                 cursor: pointer;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .list {
+        max-width: 90%;
+
+        &__item {
+            //max-height: 60vh;
         }
     }
 }
